@@ -1,0 +1,34 @@
+body {
+  background-color: #f8f4f4;
+}
+.row {
+  margin: 1rem !important;
+  border-radius: 2px;
+
+}
+.rental {
+  margin: 2rem 0;
+
+}
+.card {
+  box-shadow: 5px 5px 12px #aaaaaa;
+}
+.card-body {
+  text-align: center;
+  background-color: #e1dbdc;
+}
+.card-title {
+  margin: 0;
+  text-transform: capitalize;
+}
+.card-highlight {
+  text-transform: uppercase;
+  font-size: .7rem;
+  color: #aa6bec;
+  font-weight: bold;
+}
+.card-details {
+  font-size: .8rem;
+  margin: 0;
+  color: #4e4c4a;
+}
