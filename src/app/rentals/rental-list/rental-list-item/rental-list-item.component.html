@@ -1,4 +1,5 @@
-<div class="card" style="width: 14rem; height: 20rem;" >
+<a routerLink="/rentals/{{rental.id}}">
+  <div class="card"  >
     <img
       src="{{rental.image}}"
       class="card-img-top"
@@ -10,3 +11,4 @@
       <div class="card-details">${{rental.rate}} per night - Free Cancellation</div>
     </div>
   </div>
+</a>

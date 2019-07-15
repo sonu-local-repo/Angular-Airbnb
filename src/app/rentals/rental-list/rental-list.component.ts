@@ -1,5 +1,6 @@
 import { ModelService } from './../model/model.service';
 import { Component, OnInit } from '@angular/core';
+import { RentalModel } from '../rental/rental-model.component';
 
 @Component({
   selector: 'app-rental-list',
@@ -8,13 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RentalListComponent implements OnInit {
 
-  rentals: any[];
+  rentals: RentalModel[];
 
   constructor(private modelService: ModelService) { }
 
   ngOnInit() {
-    this.rentals = this.modelService.getRentals();
-  }
+    // this.rentals = this.modelService.getRentals();
+  //   const rentalObservable = this.modelService.getRentals();
+  //   rentalObservable.subscribe(
+  //     (data) => {
+  //       this.rentals = data;
+  //     }
+  //   );
 
+
+  this.modelService.getRentals().subscribe(
+    (data) => {
+      this.rentals = data;
+    }
+  );
+  }
 
 }

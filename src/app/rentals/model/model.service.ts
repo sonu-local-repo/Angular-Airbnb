@@ -1,4 +1,10 @@
+import { Observable } from 'rxjs';
+import { RentalModel } from '../rental/rental-model.component';
+
 export class ModelService {
+
+  selectedRental;
+
   rentals: any[] = [ {
     id: 1,
     title: "Manson House",
@@ -6,7 +12,7 @@ export class ModelService {
     street: "Timesqure",
     category: "house",
     rate: 250,
-    image:"https://image.shutterstock.com/image-illustration/green-interior-living-room-260nw-174021608.jpg",
+    image:"https://hgtvhome.sndimg.com/content/dam/images/door/fullset/2014/4/2/0/doory2014-1005-benedict-canyon-drive-beverly-hills-ca-living-room.jpg.rend.hgtvcom.966.644.suffix/1427751434340.jpeg",
     bedrooms: 5,
     shared: false,
     createdAt: "01/01/2019",
@@ -14,7 +20,7 @@ export class ModelService {
 
   },
   {
-    id: 1,
+    id: 2,
     title: "Manson House",
     city: "New York",
     street: "Timesqure",
@@ -28,7 +34,7 @@ export class ModelService {
 
   },
   {
-    id: 1,
+    id: 3,
     title: "Manson House",
     city: "New York",
     street: "Timesqure",
@@ -42,7 +48,7 @@ export class ModelService {
 
   },
   {
-    id: 1,
+    id: 4,
     title: "Manson House",
     city: "New York",
     street: "Timesqure",
@@ -55,7 +61,7 @@ export class ModelService {
     discreption:"Beautiful home in the city center"
 
   },   {
-    id: 1,
+    id: 5,
     title: "Manson House",
     city: "New York",
     street: "Timesqure",
@@ -69,7 +75,7 @@ export class ModelService {
 
   },
   {
-    id: 1,
+    id: 6,
     title: "Manson House",
     city: "New York",
     street: "Timesqure",
@@ -83,7 +89,7 @@ export class ModelService {
 
   },
   {
-    id: 1,
+    id: 7,
     title: "Manson House",
     city: "New York",
     street: "Timesqure",
@@ -97,7 +103,7 @@ export class ModelService {
 
   },
   {
-    id: 1,
+    id: 8,
     title: "Manson House",
     city: "New York",
     street: "Timesqure",
@@ -111,7 +117,21 @@ export class ModelService {
 
   }];
 
-  getRentals(): any[] {
-    return this.rentals;
+  getRentals(): Observable<RentalModel[]> {
+    return new Observable((observer) => {
+      setTimeout(() => {
+        observer.next(this.rentals);
+      }, 2000);
+
+    });
+
+  }
+  getRentalById(id): RentalModel {
+      this.rentals.forEach(rental => {
+        if (rental.id == id) {
+          this.selectedRental= rental;
+        }
+      });
+      return this.selectedRental;
   }
 }

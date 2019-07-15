@@ -5,14 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { RentalListComponent } from './rentals/rental-list/rental-list.component';
-import { RentalDetailComponent } from './rentals/rental-detail/rental-detail.component';
+import { RentalDetailComponent } from './rentals/rental/rental-detail/rental-detail.component';
+import { RentalListItemComponent } from './rentals/rental-list/rental-list-item/rental-list-item.component';
+import { RentalComponent } from './rentals/rental/rental.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     RentalListComponent,
-    RentalDetailComponent
+    RentalDetailComponent,
+    RentalListItemComponent,
+    RentalComponent
   ],
   imports: [
     BrowserModule,

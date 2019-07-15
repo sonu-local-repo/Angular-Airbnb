@@ -1,9 +1,15 @@
-import { NgModule } from '@angular/core';
+import { RentalComponent } from './rentals/rental/rental.component';
+import { RentalDetailComponent } from './rentals/rental/rental-detail/rental-detail.component';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RentalListComponent } from './rentals/rental-list/rental-list.component';
 
 const routes: Routes = [
-  {path: '', component: RentalListComponent}
+  {path: '', redirectTo: 'rentals', pathMatch: 'full'},
+  {path: 'rentals', component: RentalComponent, children:[
+        {path: '', component: RentalListComponent },
+         { path: ':id', component: RentalDetailComponent }
+  ]}
 ];
 
 @NgModule({
