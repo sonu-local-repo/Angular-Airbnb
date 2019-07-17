@@ -17,8 +17,11 @@ export class RentalDetailComponent implements OnInit {
     this.router.params.subscribe((param)=>{
         this.routerId = param['id'];
     });
-    this.rental = this.modelSerive.getRentalById(this.routerId);
-    console.log(this.rental);
+    this.modelSerive.getRentalById(this.routerId).subscribe( ( rental ) => {
+      this.rental = rental;
+      console.log(this.rental);
+    });
+
   }
 
 }
