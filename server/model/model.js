@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
 
 
@@ -15,4 +15,7 @@ const rentalSchema = new Schema({
   dailyRate: {type: Number, required: true},
   createdAt: {type: Date, required: true, default: Date.now}
 });
+
+
+
 module.exports = mongoose.model('Rental', rentalSchema);
