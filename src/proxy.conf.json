@@ -1,5 +1,5 @@
 {
-  "/app/v1/rentals": {
+  "/app/v1": {
     "target": "http://localhost:3001",
     "secure": false
   },

@@ -35,7 +35,7 @@ const userSchema = new Schema({
 
 userSchema.methods.isValidPassword = function(password){
     const passwordMatched = bcrypt.compareSync(password, this.password);
-    console.log(passwordMatched);
+    // console.log(passwordMatched);
     return bcrypt.compareSync(password, this.password);
 }
 

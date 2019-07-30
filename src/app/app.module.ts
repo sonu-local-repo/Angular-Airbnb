@@ -10,6 +10,8 @@ import { RentalDetailComponent } from './rentals/rental/rental-detail/rental-det
 import { RentalListItemComponent } from './rentals/rental-list/rental-list-item/rental-list-item.component';
 import { RentalComponent } from './rentals/rental/rental.component';
 
+import { AuthModule } from './auth/auth.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +19,14 @@ import { RentalComponent } from './rentals/rental/rental.component';
     RentalListComponent,
     RentalDetailComponent,
     RentalListItemComponent,
-    RentalComponent
+    RentalComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

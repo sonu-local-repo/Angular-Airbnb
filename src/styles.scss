@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.dflex {
+    display: flex !important;
+}
+.justify_content{
+    justify-content: center !important;
+    align-items: center !important;
+    height: 1500px !important;
+}
