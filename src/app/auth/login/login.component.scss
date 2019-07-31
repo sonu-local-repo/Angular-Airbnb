@@ -1,0 +1,14 @@
+.login {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  background-image: radial-gradient(#2978f0, #f5f7fa)
+}
+.login-form{
+  margin-top: 10%;
+}
+.login-form__submit{
+  display: flex;
+  justify-content: center;
+}

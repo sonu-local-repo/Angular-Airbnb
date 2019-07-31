@@ -8,7 +8,7 @@ exports.register = (req, res)=>{
     const { email, password, confirmPassword } = req.body;
     // console.log(req);
     userModel.findOne({email}).then((err, res)=>{
-        
+
     })
    const user = new userModel({
        userName, email, password
@@ -16,9 +16,9 @@ exports.register = (req, res)=>{
    user.save((err)=>{
        if(err){
            if(err.errmsg){
-            return res.status(422).send({title:"Email already exist" ,details:"Email already registred, please select another email or try to login"});
+            return res.status(422).send({title:"Email already exist" ,details:"Email already registred, please select another email or login"});
            }
-        
+
            return res.status(422).send(normalizeError(err.errors));
        }
        return res.json({"status":true});
@@ -26,9 +26,10 @@ exports.register = (req, res)=>{
 }
 exports.login = (req, res)=>{
     const {email, password} = req.body;
+    // console.log("user" + email, password);
     let user = '';
     checkUser(email, password).then((user, error)=>{
-        // console.log("user" + user);
+        //  console.log("user" + user);
         if(user){
             const jwtId =  jwt.sign({
               Id: user._id,
@@ -58,5 +59,5 @@ exports.authMiddleware = async function(req,res,next) {
     }else{
         return res.status(422).send({title: 'Login Error', details: 'Please login'});
     }
-    
+
 }

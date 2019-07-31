@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'
@@ -21,6 +22,7 @@ const routes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(routes),
+    NgbModule,
     FormsModule,
     CommonModule,
     HttpClientModule
