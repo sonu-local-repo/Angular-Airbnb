@@ -11,6 +11,7 @@ import { RentalListItemComponent } from './rentals/rental-list/rental-list-item/
 import { RentalComponent } from './rentals/rental/rental.component';
 
 import { AuthModule } from './auth/auth.module';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { AuthModule } from './auth/auth.module';
     AppRoutingModule,
     AuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

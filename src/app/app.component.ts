@@ -1,3 +1,4 @@
+import { AuthService } from './auth/auth.service';
 import { ModelService } from './rentals/model/model.service';
 import { Component } from '@angular/core';
 
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Airbnb';
+
 }

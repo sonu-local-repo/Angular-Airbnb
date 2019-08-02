@@ -2,13 +2,18 @@
   height: 100%;
   display: flex;
   justify-content: center;
-
-  background-image: radial-gradient(#2978f0, #f5f7fa)
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  // opacity: 0.5;
+  background-image: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),url("https://previews.123rf.com/images/sergeypykhonin/sergeypykhonin1807/sergeypykhonin180700041/104626009-sea-beach-and-sun-loungers-seascape-vacation-banner-cartoon-vector-illustration.jpg");
 }
 .login-form{
   margin-top: 10%;
+  opacity: 1;
 }
 .login-form__submit{
   display: flex;
   justify-content: center;
+  opacity: 1;
 }

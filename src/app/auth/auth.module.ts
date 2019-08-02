@@ -27,6 +27,6 @@ const routes: Routes = [
     CommonModule,
     HttpClientModule
   ],
-  providers: [AuthService]
+  providers: []
 })
 export class AuthModule { }

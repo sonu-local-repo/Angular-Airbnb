@@ -12,18 +12,16 @@ import {Router} from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   error = null;
-  ngOnInit() {
+    ngOnInit() {  }
 
-  }
-
-  constructor(private http: HttpClient, private authService: AuthService,private router: Router) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
 
   formSubmit(data) {
-   this.authService.CustomerRegistration(data).subscribe((res)=>{
+   this.authService.CustomerRegistration(data).subscribe((res) => {
      console.log(res);
-     console.log('error'+ this.error);
-     if(res){
-       this.router.navigate(['/login']);
+     console.log('error' + this.error);
+     if (res) {
+       this.router.navigate(['/login', {registered:'success'}]);
      }
    }, error => {
      this.error = error.error.details;

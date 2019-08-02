@@ -1,7 +1,7 @@
 <div class="row login">
 
       <form class="col-lg-3 login-form  " #formData = "ngForm">
-
+        <div *ngIf="isRegistered" class="alert alert-success">{{ isRegistered }} </div>
         <p *ngIf="error">
           <button  type="button" class="btn btn-danger"   ><strong>ERROR!</strong> {{error}}</button >
         </p>

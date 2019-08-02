@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { ModelService } from './../model/model.service';
 import { Component, OnInit } from '@angular/core';
 import { RentalModel } from '../rental/rental-model.component';
@@ -12,14 +13,15 @@ export class RentalListComponent implements OnInit {
 
   rentals: RentalModel[];
 
-  constructor(private modelService: ModelService, private httpClient: HttpClient) { }
+  constructor(private modelService: ModelService, private httpClient: HttpClient, private auth: AuthService) { }
 
   ngOnInit() {
-  this.modelService.getRentals().subscribe(
-    (data: RentalModel[]) => {
-      this.rentals = data;
-    }
-  );
+    this.auth.isValidToken();
+    this.modelService.getRentals().subscribe(
+      (data: RentalModel[]) => {
+        this.rentals = data;
+      }
+    );
 
 
 
