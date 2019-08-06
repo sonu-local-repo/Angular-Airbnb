@@ -20,9 +20,13 @@ export class AuthService implements OnInit {
     }
 
     saveJWTToken(token: string){
-      localStorage.setItem('id_token', token);
-      const decodedToken = this.jwt.decodeToken(this.localToken);
-      this.authSubject.next(decodedToken.email);
+      if (token){
+        localStorage.setItem('id_token', token);
+        this.localToken = token;
+        const decodedToken = this.jwt.decodeToken(this.localToken);
+        this.authSubject.next(decodedToken.email);
+      }
+
 
     }
 
@@ -36,12 +40,17 @@ export class AuthService implements OnInit {
     isValidToken(){
       if(this.localToken){
         const decodedToken = this.jwt.decodeToken(this.localToken);
-        this.authSubject.next(decodedToken.email);
-        return moment().isBefore(moment.unix(decodedToken.exp));
+        if (moment().isBefore(moment.unix(decodedToken.exp))) {
+          this.authSubject.next(decodedToken.email);
+          return true;
+        } else {
+          return false;
+        }
       }
       return false;
     }
     logout(){
+      this.localToken = null;
       localStorage.removeItem('id_token');
       this.authSubject.next(null);
     }
@@ -52,5 +61,9 @@ export class AuthService implements OnInit {
         return decodedToken.email;
       }
 
+    }
+    // tslint:disable-next-line:member-ordering
+    getToken(){
+      return localStorage.getItem('id_token');
     }
 }

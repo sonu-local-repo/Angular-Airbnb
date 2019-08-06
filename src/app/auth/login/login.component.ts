@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
 
       public login(formData: NgForm) {
-        console.log(formData.form.value);
+        // console.log(formData.form.value);
         this.authService.CustomerLogin(formData).subscribe((res) => {
           if (res) {
             // this.authService.saveJWTToken(res);
@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/']);
           }
         }, error => {
-          console.log('error' + this.error);
-          this.error = error.error.details;
+           console.log('error' + error);
+          // this.error = error.error.details;
         });
        }
 

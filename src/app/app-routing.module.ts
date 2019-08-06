@@ -3,12 +3,13 @@ import { RentalDetailComponent } from './rentals/rental/rental-detail/rental-det
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RentalListComponent } from './rentals/rental-list/rental-list.component';
+import { CanActivatePages } from './auth/auth-guard-service';
 
 const routes: Routes = [
   {path: '', redirectTo: 'rentals', pathMatch: 'full'},
-  {path: 'rentals', component: RentalComponent, children:[
-        {path: '', component: RentalListComponent },
-         { path: ':id', component: RentalDetailComponent }
+  {path: 'rentals', canActivate:[CanActivatePages], component: RentalComponent, children:[
+        {path: '', canActivate:[CanActivatePages], component: RentalListComponent },
+         { path: ':id', canActivate:[CanActivatePages], component: RentalDetailComponent }
   ]}
 ];
 

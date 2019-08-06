@@ -8,10 +8,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
+import { CanActivatePages } from './auth-guard-service';
 
 const routes: Routes = [
-    {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent}
+    {path: 'login', canActivate: [CanActivatePages], component: LoginComponent},
+    {path: 'register', canActivate: [CanActivatePages], component: RegisterComponent}
   ];
 
 @NgModule({
