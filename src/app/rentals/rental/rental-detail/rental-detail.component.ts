@@ -14,14 +14,16 @@ export class RentalDetailComponent implements OnInit {
   constructor(private router: ActivatedRoute, private modelSerive: ModelService ) { }
 
   ngOnInit() {
-    this.router.params.subscribe((param)=>{
+    this.router.params.subscribe((param) => {
         this.routerId = param['id'];
     });
     this.modelSerive.getRentalById(this.routerId).subscribe( ( rental ) => {
       this.rental = rental;
-      console.log(this.rental);
+      // console.log(this.rental);
     });
 
   }
+
+  
 
 }

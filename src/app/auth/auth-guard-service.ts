@@ -7,32 +7,26 @@ import { Observable } from 'rxjs';
 export class CanActivatePages implements CanActivate {
   constructor(private auth: AuthService, private route: Router) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean|UrlTree>|Promise<boolean|UrlTree>|boolean|UrlTree {
-      // console.log('is valid=>'+this.auth.isValidToken)
-      console.log(state.url);
-      if (this.auth.isValidToken()) {
-        console.log(state.url);
-        if (state.url.includes('login')|| state.url.includes('register')) {
-          console.log('can activate2');
+  canActivate( route: ActivatedRouteSnapshot,  state: RouterStateSnapshot ): 
+  Observable<boolean|UrlTree>|Promise<boolean|UrlTree>|boolean|UrlTree {
+        if (this.auth.isValidToken()) {
+        // console.log(state.url);
+        if (state.url.includes('login') || state.url.includes('register')) {
+          // console.log('can activate2');
           this.route.navigate(['/rentals']);
           return false;
         } else {
           return true;
         }
-      } else if (state.url.includes('login')|| state.url.includes('register')) {
+      } else if (state.url.includes('login') || state.url.includes('register')) {
 
-        if (!this.auth.isValidToken()){
+        if (!this.auth.isValidToken()) {
           return true;
         } else {
           return false;
         }
 
-      }
-
-      else {
+      } else {
         // tslint:disable-next-line: no-unused-expression
         this.route.navigate(['/login']);
         return false;

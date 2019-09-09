@@ -16,7 +16,7 @@ export class RentalListComponent implements OnInit {
   constructor(private modelService: ModelService, private httpClient: HttpClient, private auth: AuthService) { }
 
   ngOnInit() {
-    console.log("Is valid token" + this.auth.isValidToken());
+    // console.log("Is valid token" + this.auth.isValidToken());
     this.modelService.getRentals().subscribe(
       (data: RentalModel[]) => {
         this.rentals = data;
