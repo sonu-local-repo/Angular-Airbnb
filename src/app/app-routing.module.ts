@@ -7,9 +7,9 @@ import { CanActivatePages } from './auth/auth-guard-service';
 
 const routes: Routes = [
   {path: '', redirectTo: 'rentals', pathMatch: 'full'},
-  {path: 'rentals', canActivate:[CanActivatePages], component: RentalComponent, children:[
-        {path: '', canActivate:[CanActivatePages], component: RentalListComponent },
-         { path: ':id', canActivate:[CanActivatePages], component: RentalDetailComponent }
+  {path: 'rentals', canActivate: [CanActivatePages], component: RentalComponent, children:[
+        {path: '', canActivate: [CanActivatePages], component: RentalListComponent },
+         { path: ':id', canActivate: [CanActivatePages], component: RentalDetailComponent }
   ]}
 ];
 
